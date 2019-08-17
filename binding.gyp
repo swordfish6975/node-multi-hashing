@@ -19,15 +19,25 @@
                 "groestl.c",
                 "allium.c",
                 "blake.c",
-                "gost.c",
-                "fugue.c",
-                "qubit.c",
-                "hefty1.c",
-                "shavite3.c",
-                "cryptonight.c",
-                "x13.c",
                 "boolberry.cc",
+                "gost.c",
+                "c11.c",
+                "cryptonight.c",
+                "cryptonight_dark.c",
+                "cryptonight_dark_lite.c",
+                "cryptonight_fast.c",
+                "cryptonight_lite.c",
+                "cryptonight_turtle.c",
+                "cryptonight_turtle_lite.c",
+                "cryptonight_soft_shell.c",
+                "fresh.c",
+                "fugue.c",
+                "hefty1.c",
                 "nist5.c",
+                "qubit.c",
+                "sha1.c",
+                "shavite3.c",
+                "x13.c",
                 "whirlpoolx.c",
                 "Lyra2RE.c",
                 "zr5.c",
@@ -38,9 +48,7 @@
                 "blake2s.c",
                 "sha3/sph_blake2s.c",
                 "neoscrypt.c",
-                "sha1.c",
                 "x15.c",
-                "fresh.c",
                 "phi1612.c",
                 "sph/sph_skein.h",
                 "sph/sph_jh.h",  
@@ -55,6 +63,7 @@
                 "yescrypt/yescrypt-best.c",
                 "yescrypt/yescryptcommon.c",
                 "sha3/sph_hefty1.c",
+                "sha3/sph_fugue.c",
                 "sha3/aes_helper.c",
                 "sha3/sph_blake.c",
                 "sha3/sph_bmw.c",
@@ -82,48 +91,40 @@
                 "crypto/hash.c",
                 "crypto/aesb.c",
                 "crypto/wild_keccak.cpp",
-                "sha3/sph_fugue.c",
                 "lyra2z16m330.c",
                 "skunk.c",
                 "lyra2z330.c",
                 "xevan.c"
+                "argon2/src/argon2.c",
+                "argon2/src/core.c",
+                "argon2/src/encoding.c",
+                "argon2/src/ref.c",
+                "argon2/src/thread.c",
+                "argon2/src/blake2/blake2b.c"
             ],
-            'conditions': [
-                ['OS=="linux"',
-                  {
-                    'link_settings': {
-                      'libraries': [
-                        '-lgmp'
-                      ]
-                    }
-                  }
-                ],
-                ['OS=="mac"',
-                  {
-                    'link_settings': {
-                      'libraries': [
-                        '-lgmp'
-                      ]
-                    }
-                  }
-                ],
-                ['OS=="win"',
-                  {
-                    'link_settings': {
-                      'libraries': [
-                        '-lgmp.lib'
-                      ],
-                    }
-                  }
-                ]
-              ],
             "include_dirs": [
                 "crypto",
-                "<!(node -e \"require('nan')\")"
+                "argon2/include"
             ],
             "cflags_cc": [
-                "-std=c++0x"
+                "-std=c++0x",
+                "-Wno-missing-field-initializers",
+                "-Wno-unused-function",
+                "-Wno-unused-const-variable",
+                "-Wno-unused-private-field",
+                "-Wno-unused-function",
+                "-Wno-unused-but-set-variable"
             ],
+            "xcode_settings": {
+                "OTHER_CFLAGS": [
+                  "-Wno-missing-field-initializers",
+                  "-Wno-unused-function",
+                  "-Wno-unused-const-variable",
+                  "-Wno-unused-private-field",
+                  "-Wno-unused-function",
+                  "-Wno-unused-but-set-variable"
+                ],
+            }
         }
     ]
 }

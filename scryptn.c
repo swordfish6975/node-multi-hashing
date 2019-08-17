@@ -30,7 +30,6 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <inttypes.h>
 
 #include "scryptn.h"
 #include "sha256.h"

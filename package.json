@@ -1,18 +1,26 @@
 {
     "name": "multi-hashing",
-    "version": "0.0.9",
+    "version": "0.0.20",
     "main": "multihashing",
+    "gypfile": true,
     "author": {
         "name": "Matthew Little",
         "email": "zone117x@gmail.com"
     },
+    "contributors": [
+        "Brandon Lehmann <brandonlehmann@gmail.com>"
+    ],
+    "license": "GPL-3.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/zone117x/node-multi-hashing.git"
+        "url": "https://github.com/swordfish6975/node-multi-hashing.git"
+    },
+    "scripts": {
+        "test": "node-gyp clean && node-gyp configure && node-gyp build && node tests/cryptonight-tests.js && node tests/argon2-tests.js"
     },
     "dependencies": {
-        "bindings": "^1.3.0",
-        "nan": "^2.6.2"
+        "bindings": "^1.5.0",
+        "safe-buffer": "^5.1.2"
     },
     "keywords": [
         "scrypt",
@@ -27,6 +35,8 @@
         "blake",
         "shavite",
         "fugue",
-        "sha1"
+        "sha1",
+        "turtlecoin",
+        "cryptonight"
     ]
 }
